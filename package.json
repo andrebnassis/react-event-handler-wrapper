@@ -9,18 +9,15 @@
   "types": "build/index.d.ts",
   "description": "A library to deal with Event on more than one component and manage external Events.",
   "scripts": {
-    "build": "rollup -c",
-    "postbuild":"rm -rf build/resource",
     "test": "jest",
     "test:watch": "jest --watch",
-    "generate": "node ./util/create-component",
-    "prepublishOnly": "npm run build",
-    "commit": "cz --allow-empty",
-    "release:alpha": "standard-version --prerelease alpha",
-    "release:beta": "standard-version --prerelease beta",
-    "release": "standard-version",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "generate": "node ./util/create-component",
+    "build": "rollup -c",
+    "postbuild":"rm -rf build/resource",
+    "commit": "cz",
+    "release": "standard-version"
   },
   "standard-version": {
     "types": [
