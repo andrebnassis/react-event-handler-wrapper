@@ -17,6 +17,7 @@
     "build": "rollup -c",
     "postbuild": "rm -rf build/resource",
     "commit": "cz",
+    "prerelease": "node retrieve-last-version",
     "release": "standard-version"
   },
   "standard-version": {
