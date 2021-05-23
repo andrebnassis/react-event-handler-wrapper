@@ -15,7 +15,7 @@
     "build-storybook": "build-storybook",
     "generate": "node ./util/create-component",
     "build": "rollup -c",
-    "postbuild":"rm -rf build/resource",
+    "postbuild": "rm -rf build/resource",
     "commit": "cz",
     "release": "standard-version"
   },
