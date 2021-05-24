@@ -14,6 +14,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "generate": "node ./util/create-component",
+    "prebuild":"node modify-package-json react-lib && yarn",
     "build": "rollup -c",
     "postbuild": "rm -rf build/resource",
     "commit": "cz",
