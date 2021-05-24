@@ -2,13 +2,6 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### 1.0.1 (2021-05-24)
-
-
-### CI
-
-* **release:** configure release process using GitHub Actions ([54f5a9a](https://github.com/andrebnassis/react-event-handler-wrapper/commit/54f5a9ab2e84e26775d90f13de8c21904e8eb284))
-
 ## 1.0.0 (2021-05-23)
 
 
