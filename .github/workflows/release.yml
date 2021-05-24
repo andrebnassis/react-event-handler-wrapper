@@ -28,4 +28,4 @@ jobs:
         # If you need an NPM release, you can add the NPM_TOKEN
         #   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         if: github.ref == 'refs/heads/master'
-        run: yarn release && git push --follow-tags && yarn publish
+        run: git config --global user.email "andrebnassis@gmail.com" && git config --global user.name "andrebnassis" &&  yarn release && git push --follow-tags && yarn publish
