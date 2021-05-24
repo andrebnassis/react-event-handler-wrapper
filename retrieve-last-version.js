@@ -5,7 +5,7 @@ const package = require('./package.json');
 const { exec } = require('child_process');
 const { exit } = require('process');
 
-  exec("git -c 'versionsort.suffix=-' ls-remote --exit-code --refs --sort='version:refname' --tags git@github.com:andrebnassis/react-event-handler-wrapper.git 'v*.*.*'     | tail --lines=1 | cut --delimiter='/' --fields=3", (error, stdout) => {
+  exec("git fetch origin master:master && git -c 'versionsort.suffix=-' ls-remote --exit-code --refs --sort='version:refname' --tags git@github.com:andrebnassis/react-event-handler-wrapper.git 'v*.*.*'     | tail --lines=1 | cut --delimiter='/' --fields=3", (error, stdout) => {
     let currentVersion = package.version;
 
     if (error) {
