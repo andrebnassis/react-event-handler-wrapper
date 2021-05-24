@@ -1,6 +1,6 @@
 {
   "name": "react-event-handler-wrapper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "build/index.js",
   "module": "build/index.esm.js",
   "files": [
@@ -14,7 +14,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "generate": "node ./util/create-component",
-    "prebuild":"node modify-package-json react-lib && yarn",
+    "prebuild": "node modify-package-json react-lib && yarn",
     "build": "rollup -c",
     "postbuild": "rm -rf build/resource",
     "commit": "cz",
