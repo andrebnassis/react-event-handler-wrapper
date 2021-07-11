@@ -1,6 +1,6 @@
 {
   "name": "react-event-handler-wrapper",
-  "version": "1.0.2",
+  "version": "1.0.3-alpha.0",
   "main": "build/index.js",
   "module": "build/index.esm.js",
   "files": [
@@ -19,7 +19,10 @@
     "postbuild": "rm -rf build/resource",
     "commit": "cz",
     "prerelease": "node retrieve-last-version",
-    "release": "standard-version"
+    "release": "standard-version",
+    "verdaccio:local": "docker start verdaccio 2>/dev/null || docker run -it -d --rm --name verdaccio -p 4873:4873 -v $(pwd)/verdaccio/conf:/verdaccio/conf verdaccio/verdaccio",
+    "preverdaccio:publish": "npm run verdaccio:local",
+    "verdaccio:publish": "npm publish --registry http://localhost:4873/"
   },
   "standard-version": {
     "types": [
