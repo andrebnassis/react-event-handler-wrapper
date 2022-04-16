@@ -55,6 +55,7 @@
     "babel-loader": "^8.1.0",
     "babel-preset-react-app": "^10.0.0",
     "cross-var": "^1.1.0",
+    "gh-pages": "^3.2.3",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "rimraf": "^3.0.2",
