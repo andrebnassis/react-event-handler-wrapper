@@ -1,0 +1,31 @@
+<!-- Dot.stories.mdx -->
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import * as stories from './OutClickEventWrapper.stories.tsx';
+
+<Meta 
+ title="2. Getting Started"
+ parameters={{
+    viewMode: 'docs',
+    previewTabs: { 
+      canvas: { hidden: true } 
+     },
+  }}
+  
+/>
+
+# OutClickEventWrapper
+
+The component `OutClickEventWrapper` tells you if a click was inside or outside all of its childrens.
+
+For a usage case, It can be very useful when implementing a `dropdown` component from scratch, where you need to know if a click event was outside the component itself (then the dropdown's list get closed, for example).
+
+## Sample
+
+```typescript
+import React from "react";
+import { OutClickEventWrapper } from 'react-event-handler-wrapper';
+```
+<Canvas withSource="open">
+    <Story story={stories.OutClickEvent}/>
+</Canvas>
