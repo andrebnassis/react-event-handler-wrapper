@@ -1,7 +1,7 @@
 import React, { createRef, useEffect, useState } from 'react';
 import { useOutClickEventWrapper } from './hook/useOutClickEventWrapper';
 
-const OutClickEventWrapper: React.FC<{ outClickCallback: any; }> = (props) => {
+const OutClickEventWrapper: React.FC<{ outClickCallback: any; children:React.ReactNode }> = (props) => {
   
   const [elRefs, setElRefs] = useState<any>([]);
   useEffect(() => {

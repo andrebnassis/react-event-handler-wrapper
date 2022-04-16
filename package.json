@@ -1,92 +1,25 @@
 {
   "name": "react-event-handler-wrapper",
-  "version": "1.0.3-alpha.0",
+  "version": "1.0.3",
   "main": "build/index.js",
   "module": "build/index.esm.js",
+  "types": "build/index.d.ts",
   "files": [
     "build"
   ],
-  "types": "build/index.d.ts",
   "description": "A library to deal with Event on more than one component and manage external Events.",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "generate": "node ./util/create-component",
-    "prebuild": "node modify-package-json react-lib && yarn",
-    "build": "rollup -c",
-    "postbuild": "rm -rf build/resource",
-    "commit": "cz",
-    "prerelease": "node retrieve-last-version",
-    "release": "standard-version",
-    "verdaccio:local": "docker start verdaccio 2>/dev/null || docker run -it -d --rm --name verdaccio -p 4873:4873 -v $(pwd)/verdaccio/conf:/verdaccio/conf verdaccio/verdaccio",
-    "preverdaccio:publish": "npm run verdaccio:local",
-    "verdaccio:publish": "npm publish --registry http://localhost:4873/"
-  },
-  "standard-version": {
-    "types": [
-      {
-        "type": "chore",
-        "section": "Others",
-        "hidden": true
-      },
-      {
-        "type": "revert",
-        "section": "Reverts",
-        "hidden": false
-      },
-      {
-        "type": "feat",
-        "section": "Features",
-        "hidden": false
-      },
-      {
-        "type": "fix",
-        "section": "Bug Fixes",
-        "hidden": false
-      },
-      {
-        "type": "improvement",
-        "section": "Feature Improvements",
-        "hidden": false
-      },
-      {
-        "type": "docs",
-        "section": "Docs",
-        "hidden": false
-      },
-      {
-        "type": "style",
-        "section": "Styling",
-        "hidden": false
-      },
-      {
-        "type": "refactor",
-        "section": "Code Refactoring",
-        "hidden": false
-      },
-      {
-        "type": "perf",
-        "section": "Performance Improvements",
-        "hidden": false
-      },
-      {
-        "type": "test",
-        "section": "Tests",
-        "hidden": false
-      },
-      {
-        "type": "build",
-        "section": "Build System",
-        "hidden": false
-      },
-      {
-        "type": "ci",
-        "section": "CI",
-        "hidden": false
-      }
-    ]
+    "predeploy:storybook": "cross-var $npm_execpath run build-storybook",
+    "deploy:storybook": "gh-pages -d storybook-static",
+    "prebuild:lib": "rimraf build/",
+    "build:lib": "rollup -c",
+    "verdaccio:up": "docker-compose -f verdaccio-docker-compose.yaml up -d",
+    "verdaccio:down": "docker-compose -f verdaccio-docker-compose.yaml down -v",
+    "verdaccio:only-publish": "npm publish --registry http://localhost:4873/",
+    "preverdaccio:publish": "cross-var $npm_execpath run verdaccio:down && cross-var $npm_execpath run verdaccio:up",
+    "verdaccio:publish": "cross-var $npm_execpath run verdaccio:only-publish"
   },
   "repository": {
     "type": "git",
@@ -98,7 +31,6 @@
     "Library",
     "Rollup",
     "Typescript",
-    "Styled-Components",
     "Storybook"
   ],
   "author": "Andre Borba Netto Assis",
@@ -106,10 +38,9 @@
   "bugs": {
     "url": "https://github.com/andrebnassis/react-event-handler-wrapper/issues"
   },
-  "homepage": "https://github.com/andrebnassis/react-event-handler-wrapper#readme",
+  "homepage": "https://andrebnassis.github.io/react-event-handler-wrapper",
   "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "react": "^16.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -119,34 +50,20 @@
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
     "@storybook/react": "^6.2.9",
-    "@testing-library/jest-dom": "^5.5.0",
-    "@testing-library/react": "^11.2.3",
-    "@types/jest": "^24.0.24",
     "@types/react": "^16.9.12",
     "@types/react-dom": "^16.9.8",
-    "@types/styled-components": "^5.1.9",
     "babel-loader": "^8.1.0",
     "babel-preset-react-app": "^10.0.0",
-    "commitizen": "^4.2.4",
-    "cz-conventional-changelog": "^3.2.0",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^26.6.3",
-    "node-sass": "^5.0.0",
+    "cross-var": "^1.1.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "rimraf": "^3.0.2",
     "rollup": "^2.36.1",
-    "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
-    "rollup-plugin-postcss": "^3.1.2",
+    "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.29.0",
-    "sass-loader": "^10.1.1",
-    "standard-version": "^9.3.0",
-    "styled-components": "^5.2.3",
-    "ts-jest": "^26.4.4",
+    "rollup-plugin-visualizer": "^5.6.0",
     "typescript": "^4.1.3"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   },
   "dependencies": {}
 }

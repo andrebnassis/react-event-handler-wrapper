@@ -1,3 +1,2 @@
-// Generated with util/create-component.js
-    export { default } from "./OutClickEventWrapper";
+export { default } from "./OutClickEventWrapper";
   
